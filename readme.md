@@ -42,8 +42,7 @@ Depois de executa-lo, execute o comando abaixo para o ffmpeg gerar o conteúdo, 
  OBS: Não execute no mesmo ffmpeg do projeto, senão o projeto C# não conseguirá abrir ele.
 
  Execute a aplicação C#
- ![Exemplo da tela](Captura2025-04-07 094946.jpg)
-
+![Exemplo da tela](https://github.com/dorathoto/Poc.BufferCircularVideo/blob/stage/Captura2025-04-07%20094946.jpg?raw=true)
  -----------
 
  # English
