@@ -1,19 +1,18 @@
 ﻿using LibVLCSharp.Shared;
-using System;
 using System.Collections.Concurrent;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Poc.BufferCircularVideo;
 
-public class VideoRTSPRecorderCircular : IDisposable
+/// <summary>
+/// Esse é outro projeto, utilizando o NAL Unity com o LibVLCSharp (teoricamente muito mais leve e perfomático que a versão do FFMpeg, mas não consegui fazer funcionar ainda).
+/// </summary>
+public class VideoRtspNalUnity : IDisposable
 {
-    private const int BUFFER_SECONDS = 3;
-    private const int EXTRA_SECONDS = 3;
+    private const int BUFFER_SECONDS = 10;
+    private const int EXTRA_SECONDS = 5;
     private const int WIDTH = 1280;
     private const int HEIGHT = 720;
     private readonly LibVLC _libVLC;
@@ -23,7 +22,7 @@ public class VideoRTSPRecorderCircular : IDisposable
     private List<H264Packet> _pendingRecording = new();
     private Thread _recordingThread;
 
-    public VideoRTSPRecorderCircular(string rtspUrl)
+    public VideoRtspNalUnity(string rtspUrl)
     {
         Core.Initialize();
         _libVLC = new LibVLC("--network-caching=500",
